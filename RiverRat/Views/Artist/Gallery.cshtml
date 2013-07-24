@@ -1,0 +1,17 @@
+﻿@model RiverRat.Models.Artist
+
+@{
+    ViewBag.Title = "Artist's Portfolio";
+}
+
+<ul class="thumbnails">
+    @foreach (var photo in Model.Photos)
+    {
+        <li class=item>
+            <a href="@Url.Content("~/Content/Artists/" + photo.FileName)">
+                <img alt="@photo.Title" src="@Url.Content("~/Content/Artists/" + photo.FileName)" class="thumbnail-border" width="180" />
+            </a>
+            <span class="image-overlay">@photo.Title</span>
+        </li>
+    }
+</ul>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title> 
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="@Url.Content("~/Content/jquery.mobile-1.0b3.min.css")" />
+        <link rel="stylesheet" href="@Url.Content("~/Content/Site.Mobile.css")" />
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.6.4.min.js")"></script>
+        <script type="text/javascript">
+            $(document).bind("mobileinit", function() {
+                // As of Beta 2, jQuery Mobile's Ajax navigation does not work in all cases (e.g.,
+                // when navigating from a mobile to a non-mobile page), hence disabling it.
+                $.mobile.ajaxEnabled = false;
+            });
+        </script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.mobile-1.0b3.min.js")"></script>
+    </head> 
+<body> 
+
+    <div data-role="page" data-theme="e">
+        @Html.Partial("_ViewSwitcher")
+
+        <div data-role="header">
+            <header>
+                <img alt="River Rat Tattoo Logo" src="@Url.Content("~/Images/new_braunfels_river_rat_tattoo_logo.png")" class="thumbnail-border" width="100" />
+            </header>
+        </div>
+        <div class="content-wrapper">
+            <ul data-role="listview" data-inset="true">
+                <li class=item>@Html.ActionLink("Tracy", "Gallery/Tracy", "Artist")</li>
+                <li class=item>@Html.ActionLink("Jess", "Gallery/Jess", "Artist")</li>
+                <li class=item>@Html.ActionLink("Andrew", "Gallery/Andrew", "Artist")</li>
+                <li class=item>@Html.ActionLink("Location", "Location", "Home")</li>
+                <li class=item>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>
+        </div>
+
+        <div data-role="content">
+            @RenderSection("featured", false)
+            @RenderBody()		
+        </div>
+
+    </div>
+
+</body>
+</html>

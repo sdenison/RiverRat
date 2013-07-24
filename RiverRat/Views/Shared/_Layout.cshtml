@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="Description" content="New Braunfels Premier Tattoo Shop Piercings" />
+        <title>@ViewBag.Title - New Braunfels River Rat Tattoos and Piercings</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/themes/base/css", "~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @RenderSection("Styles", false)
+    </head>
+    <body>
+        <header>
+            @Html.Partial("_ViewSwitcher")
+            <table align="center">
+                <tr>
+                    <td>
+                        <img alt="River Rat Tattoo Logo" src="@Url.Content("~/Images/new_braunfels_river_rat_tattoo_logo.png")" class="thumbnail-border" width="400" />
+                    </td>
+                    <td>
+                        <img alt="River Rat Tattoo Sign" src="@Url.Content("~/Images/new_braunfels_river_rat_tattoo_shop_sign.jpg")" class="thumbnail-border" width="400" />
+                    </td>
+                </tr>
+            </table>
+            <div class="content-wrapper">
+                <div class="float-right">
+                    <p class="site-title">@Html.ActionLink("Get inked!", "Index", "Home")</p>
+                </div>
+                <div class="float-left">
+                    <nav>
+                        <ul id="navlist">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li id="active"><a href="#">Artists</a>
+                                <ul id="subnavlist">
+                                    <li>@Html.ActionLink("Tracy", "Gallery/Tracy", "Artist")</li>
+                                    <li>@Html.ActionLink("Jess", "Gallery/Jess", "Artist")</li>
+                                    <li>@Html.ActionLink("Andrew", "Gallery/Andrew", "Artist")</li>
+                                </ul>
+                            </li>
+                            <li>@Html.ActionLink("Piercings", "Index", "Piercing")</li>
+                            <li>@Html.ActionLink("Location", "Location", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - River Rat Tattoos!</p>
+                </div>
+                <div class="float-right">
+                    <ul id="social">
+                        <li><a href="http://www.facebook.com/RiverRatTattoos" class="facebook">Facebook</a></li>
+                        <li><a href="http://twitter.com/riverrattattoos" class="twitter">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
